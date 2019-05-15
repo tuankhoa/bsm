@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Street Light</title>
+    <%include ../partials/head%>
+    <link rel="stylesheet" href="assets/css/styleStreetLight.css" type="text/css">
+    <script src="socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <header>
+        <%include ../partials/header%>
+    </header>
+
+    <main style="margin-top:90px">
+        <div>
+            <form action="/streetlight" method="POST">
+                <div class="row">
+
+                    <div class="col-md-2 divCol2">
+                        <div>
+                            <p class="topicCAS">Control All Systems</p>
+                        </div>
+                        <div class="odieukhienhethong" title="container" data-toggle="tooltip" data-placement="top">
+                            <input type="button" id="btnTurnOnAll" value="On" class="btn btn-danger buttonden">
+                            <input type="button" id="btnTurnOffAll" value="Off" class="btn btn-dark buttonden">
+                        </div>
+                    </div>
+
+                    <!-- Monitoring 12 Street -->
+                    <div class="col-md-10 divCol10" style="max-height: 600px; overflow-y: scroll">
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street1" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street1Alarm" style="width:100%">
+                                        <p class="topic">Street 1</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn1" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff1" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str1">1</div>
+                                        <div class="den" id="li2Str1">2</div>
+                                        <div class="den" id="li3Str1">3</div>
+                                        <div class="den" id="li4Str1">4</div>
+                                        <div class="den" id="li5Str1">5</div>
+                                        <div class="den" id="li6Str1">6</div>
+                                        <div class="den" id="li7Str1">7</div>
+                                        <div class="den" id="li8Str1">8</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street2" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street2Alarm" style="width:100%">
+                                        <p class="topic">Street 2</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn2" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff2" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str2">1</div>
+                                        <div class="den" id="li2Str2">2</div>
+                                        <div class="den" id="li3Str2">3</div>
+                                        <div class="den" id="li4Str2">4</div>
+                                        <div class="den" id="li5Str2">5</div>
+                                        <div class="den" id="li6Str2">6</div>
+                                        <div class="den" id="li7Str2">7</div>
+                                        <div class="den" id="li8Str2">8</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street3" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street3Alarm" style="width:100%">
+                                        <p class="topic">Street 3</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn3" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff3" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str3">1</div>
+                                        <div class="den" id="li2Str3">2</div>
+                                        <div class="den" id="li3Str3">3</div>
+                                        <div class="den" id="li4Str3">4</div>
+                                        <div class="den" id="li5Str3">5</div>
+                                        <div class="den" id="li6Str3">6</div>
+                                        <div class="den" id="li7Str3">7</div>
+                                        <div class="den" id="li8Str3">8</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street4" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street4Alarm" style="width:100%">
+                                        <p class="topic">Street 4</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn4" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff4" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str4">1</div>
+                                        <div class="den" id="li2Str4">2</div>
+                                        <div class="den" id="li3Str4">3</div>
+                                        <div class="den" id="li4Str4">4</div>
+                                        <div class="den" id="li5Str4">5</div>
+                                        <div class="den" id="li6Str4">6</div>
+                                        <div class="den" id="li7Str4">7</div>
+                                        <div class="den" id="li8Str4">8</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street5" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street5Alarm" style="width:100%">
+                                        <p class="topic">Street 5</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn5" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff5" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str5">1</div>
+                                        <div class="den" id="li2Str5">2</div>
+                                        <div class="den" id="li3Str5">3</div>
+                                        <div class="den" id="li4Str5">4</div>
+                                        <div class="den" id="li5Str5">5</div>
+                                        <div class="den" id="li6Str5">6</div>
+                                        <div class="den" id="li7Str5">7</div>
+                                        <div class="den" id="li8Str5">8</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street6" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street6Alarm" style="width:100%">
+                                        <p class="topic">Street 6</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn6" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff6" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str6">1</div>
+                                        <div class="den" id="li2Str6">2</div>
+                                        <div class="den" id="li3Str6">3</div>
+                                        <div class="den" id="li4Str6">4</div>
+                                        <div class="den" id="li5Str6">5</div>
+                                        <div class="den" id="li6Str6">6</div>
+                                        <div class="den" id="li7Str6">7</div>
+                                        <div class="den" id="li8Str6">8</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street7" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street7Alarm" style="width:100%">
+                                        <p class="topic">Street 7</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn7" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff7" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str7">1</div>
+                                        <div class="den" id="li2Str7">2</div>
+                                        <div class="den" id="li3Str7">3</div>
+                                        <div class="den" id="li4Str7">4</div>
+                                        <div class="den" id="li5Str7">5</div>
+                                        <div class="den" id="li6Str7">6</div>
+                                        <div class="den" id="li7Str7">7</div>
+                                        <div class="den" id="li8Str7">8</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street8" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street8Alarm" style="width:100%">
+                                        <p class="topic">Street 8</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn8" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff8" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str8">1</div>
+                                        <div class="den" id="li2Str8">2</div>
+                                        <div class="den" id="li3Str8">3</div>
+                                        <div class="den" id="li4Str8">4</div>
+                                        <div class="den" id="li5Str8">5</div>
+                                        <div class="den" id="li6Str8">6</div>
+                                        <div class="den" id="li7Str8">7</div>
+                                        <div class="den" id="li8Str8">8</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street9" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street9Alarm" style="width:100%">
+                                        <p class="topic">Street 9</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn9" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff9" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str9">1</div>
+                                        <div class="den" id="li2Str9">2</div>
+                                        <div class="den" id="li3Str9">3</div>
+                                        <div class="den" id="li4Str9">4</div>
+                                        <div class="den" id="li5Str9">5</div>
+                                        <div class="den" id="li6Str9">6</div>
+                                        <div class="den" id="li7Str9">7</div>
+                                        <div class="den" id="li8Str9">8</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street10" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street10Alarm" style="width:100%">
+                                        <p class="topic">Street 10</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn10" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff10" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str10">1</div>
+                                        <div class="den" id="li2Str10">2</div>
+                                        <div class="den" id="li3Str10">3</div>
+                                        <div class="den" id="li4Str10">4</div>
+                                        <div class="den" id="li5Str10">5</div>
+                                        <div class="den" id="li6Str10">6</div>
+                                        <div class="den" id="li7Str10">7</div>
+                                        <div class="den" id="li8Str10">8</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street11" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street11Alarm" style="width:100%">
+                                        <p class="topic">Street 11</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn11" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff11" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str11">1</div>
+                                        <div class="den" id="li2Str11">2</div>
+                                        <div class="den" id="li3Str11">3</div>
+                                        <div class="den" id="li4Str11">4</div>
+                                        <div class="den" id="li5Str11">5</div>
+                                        <div class="den" id="li6Str11">6</div>
+                                        <div class="den" id="li7Str11">7</div>
+                                        <div class="den" id="li8Str11">8</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6 ochua2duong">
+                                <div id="street12" class="containerflex" title="container" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div id="street12Alarm" style="width:100%">
+                                        <p class="topic">Street 12</p>
+                                    </div>
+                                    <div>
+                                        <input type="button" id="btnTurnOn12" value="On"
+                                            class="btn btn-danger buttonden">
+                                        <input type="button" id="btnTurnOff12" value="Off"
+                                            class="btn btn-dark buttonden">
+                                    </div>
+                                    <div class="khungChuaDen" title="container" data-toggle="tooltip"
+                                        data-placement="top">
+                                        <div class="den" id="li1Str12">1</div>
+                                        <div class="den" id="li2Str12">2</div>
+                                        <div class="den" id="li3Str12">3</div>
+                                        <div class="den" id="li4Str12">4</div>
+                                        <div class="den" id="li5Str12">5</div>
+                                        <div class="den" id="li6Str12">6</div>
+                                        <div class="den" id="li7Str12">7</div>
+                                        <div class="den" id="li8Str12">8</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- end Monitoring 12 Street -->
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </main>
+    <script src="assets/jsClient/controlAllSystems.js"></script>
+</body>
+
+</html>
