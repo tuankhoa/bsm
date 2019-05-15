@@ -48,13 +48,14 @@ module.exports = function (io, client) {
     //#region listen from Client to Server and publish from Server to PLC
     io.on('connection', function (socket) {
         socket.on('streetCtS', function (dataCtS) {
-            console.log(dataCtS)
-            if(dataCtS=='11'){
-                io.emit('streetStC', '1')
-            } else if(dataCtS=='01'){
-                io.emit('streetStC','0')
-            }
-            var transporter = nodemailer.createTransport('smtps://tuankhoa.0013%40gmail.com:7AHJTT19001560@smtp.gmail.com')
+            // var transporter = nodemailer.createTransport('smtps://tuankhoa.0013%40gmail.com:7AHJTT19001560@smtp.gmail.com')
+            var transporter = nodemailer.createTransport({
+                service: 'Gmail',
+                auth: {
+                    user: 'tuankhoa.0013@gmail.com',
+                    pass: '7AHJTT19001560'
+                }
+            })
             var mainOptions = {
                 from: 'Tuan Khoa',
                 to: 'tuankhoa.0013@gmail.com',
