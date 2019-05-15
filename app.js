@@ -16,7 +16,7 @@ var server = app.listen(port)
 var io = require('socket.io')(server)
 // require mqtt and connect to broker
 var mqtt = require('mqtt')
-var client = mqtt.connect('mqtt://192.168.0.241')
+var client = mqtt.connect('mqtt://54.161.225.115')
 
 //#region connect to mongoDB 
 var config = require('./config')
