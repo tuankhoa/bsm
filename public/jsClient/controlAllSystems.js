@@ -1,4 +1,4 @@
-var socket = io('http://localhost:8080')
+var socket = io('http://localhost')
 
 //#region declare all Lights's Streets
 var liStr1 = [
