@@ -46,9 +46,10 @@ var dataTempStC = new Array()
 module.exports = function (io, client) {
 
     //#region listen from Client to Server and publish from Server to PLC
-    io.sockets.on('connection', function (socket) {
+    io.on('connection', function (socket) {
         socket.on('streetCtS', function (dataCtS) {
             console.log(dataCtS)
+            io.emit('streetStC', '1')
             var transporter = nodemailer.createTransport('smtps://tuankhoa.0013%40gmail.com:7AHJTT19001560@smtp.gmail.com')
             var mainOptions = {
                 from: 'Tuan Khoa',
