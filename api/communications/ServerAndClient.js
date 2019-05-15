@@ -43,13 +43,13 @@ function checkSensorAndSentEmailAlarm(data) {
 }
 
 var dataTempStC = new Array()
-
+var dataTest = new Array(108)
 module.exports = function (io, client) {
 
     //#region listen from Client to Server and publish from Server to PLC
     io.on('connection', function (socket) {
         socket.on('streetCtS', function (dataCtS) {
-            console.log(dataCtS)
+            checkSensorAndSentEmailAlarm(dataTest)
             client.publish('streetStP', dataCtS, { qos: 2 })
         })
     })
