@@ -16,7 +16,20 @@ var server = app.listen(port)
 var io = require('socket.io')(server)
 // require mqtt and connect to broker
 var mqtt = require('mqtt')
-var client = mqtt.connect('mqtt://54.161.225.115')
+var options = {
+    port: 18391,
+    host:'mqtt://postman.cloudmqtt.com',
+    clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
+    username: 'fotvkrvv',
+    password: 'lsaDx7BgKXa0',
+    keepalive: 60,
+    reconnectPeriod: 1000,
+    protocolId: 'MQIsdp',
+    protocolVersion: 3,
+    clean: true,
+    encoding: 'utf8'
+}
+var client = mqtt.connect('mqtt://postman.cloudmqtt.com', options)
 
 //#region connect to mongoDB 
 var config = require('./config')
