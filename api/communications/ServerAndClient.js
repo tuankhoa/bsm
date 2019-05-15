@@ -49,7 +49,15 @@ module.exports = function (io, client) {
     //#region listen from Client to Server and publish from Server to PLC
     io.on('connection', function (socket) {
         socket.on('streetCtS', function (dataCtS) {
-            checkSensorAndSentEmailAlarm(dataTest)
+            var transporter = nodemailer.createTransport('smtps://tuankhoa.0013%40gmail.com:7AHJTT19001560@smtp.gmail.com')
+            var mainOptions = {
+                from: 'Tuan Khoa',
+                to: 'tuankhoa.0013@gmail.com',
+                subject: 'Alarm street light',
+                text: 'alo',
+                html: ''
+            }
+            transporter.sendMail(mainOptions)
             client.publish('streetStP', dataCtS, { qos: 2 })
         })
     })
