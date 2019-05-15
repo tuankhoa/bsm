@@ -43,7 +43,6 @@ function checkSensorAndSentEmailAlarm(data) {
 }
 
 var dataTempStC = new Array()
-var dataTest = new Array(108)
 module.exports = function (io, client) {
 
     //#region listen from Client to Server and publish from Server to PLC
