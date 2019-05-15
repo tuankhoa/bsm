@@ -14,10 +14,6 @@ var port = process.env.PORT || 8080
 var server = app.listen(port)
 // require socket.io and connect to server
 var io = require('socket.io')(server)
-io.configure(function () {
-    io.set("transports", ["xhr-polling"])
-    io.set("polling duration", 10)
-})
 // require mqtt and connect to broker
 var mqtt = require('mqtt')
 var client = mqtt.connect('mqtt://54.161.225.115')
