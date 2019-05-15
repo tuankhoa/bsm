@@ -1,4 +1,4 @@
-var socket = io.connect('https://luan-van-tot-nghiep.herokuapp.com/streetlight')
+var socket = io()
 
 //#region declare all Lights's Streets
 var liStr1 = [
