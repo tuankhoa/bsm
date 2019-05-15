@@ -31,7 +31,14 @@ function checkSensorAndSentEmailAlarm(data) {
     }
     // console.log(mesNotifyTurn)
     // console.log(mesAlarm)
-    var transporter = nodemailer.createTransport('smtps://tuankhoa.0013%40gmail.com:7AHJTT19001560@smtp.gmail.com')
+    // var transporter = nodemailer.createTransport('smtps://tuankhoa.0013%40gmail.com:7AHJTT19001560@smtp.gmail.com')
+    var transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'tuankhoa.0013@gmail.com',
+            pass: '7AHJTT19001560'
+        }
+    })
     var mainOptions = {
         from: 'Tuan Khoa',
         to: 'tuankhoa.0013@gmail.com',
@@ -49,22 +56,6 @@ module.exports = function (io, client) {
     io.on('connection', function (socket) {
         socket.on('streetCtS', function (dataCtS) {
             console.log(dataCtS)
-            // var transporter = nodemailer.createTransport('smtps://tuankhoa.0013%40gmail.com:7AHJTT19001560@smtp.gmail.com')
-            var transporter = nodemailer.createTransport({
-                service: 'Gmail',
-                auth: {
-                    user: 'tuankhoa.0013@gmail.com',
-                    pass: '7AHJTT19001560'
-                }
-            })
-            var mainOptions = {
-                from: 'Tuan Khoa',
-                to: 'tuankhoa.0013@gmail.com',
-                subject: 'Alarm street light',
-                text: 'alo',
-                html: ''
-            }
-            transporter.sendMail(mainOptions)
             client.publish('streetStP', dataCtS, { qos: 2 })
         })
     })
