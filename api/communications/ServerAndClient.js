@@ -71,17 +71,20 @@ module.exports = function (io, client) {
             if (topic == 'streetPtS') {
                 dataStC = dataPtS.toString()
                 io.emit('streetStC', dataStC)
-
                 if (dataTempStC.length == 0) {
                     for (var i = 0; i < 107; i++) {
                         dataTempStC[i] = dataStC[i]
                     }
                 } else {
+                    var count = 0
                     for (var i = 0; i < 108; i++) {
                         if (dataTempStC[i] != dataStC[i]) {
                             dataTempStC[i] = dataStC[i]
-                            checkSensorAndSentEmailAlarm(dataStC)
+                            count++
                         }
+                    }
+                    if (count > 0) {
+                        checkSensorAndSentEmailAlarm(dataStC)
                     }
                 }
             }
