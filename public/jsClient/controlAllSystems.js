@@ -297,6 +297,21 @@ var crStrLampColor = [
 //#endregion declare all crossroad
 
 //#region declare all times of crossroads
+var turnCr = [
+    $('#btnTurnOnCrI'),
+    $('#btnTurnOffCrI'),
+    '1',
+    $('#btnTurnOnCrII'),
+    $('#btnTurnOffCrII'),
+    '2',
+    $('#btnTurnOnCrIII'),
+    $('#btnTurnOffCrIII'),
+    '3',
+    $('#btnTurnOnCrIV'),
+    $('#btnTurnOffCrIV'),
+    '4'
+]
+
 var timeCr1 = [
     $('#setTimeI'),
     $('#setTimeGreenAI'),
@@ -369,6 +384,15 @@ function controlLightStreet(liStr) {
     })
 }
 
+function controlTrafficLamp(turnCr) {
+    turnCr[0].click(function () {
+        socket.emit('streetCtS', `t${turnCr[2]}`)
+    })
+    turnCr[1].click(function () {
+        socket.emit('streetCtS', `f${turnCr[2]}`)
+    })
+}
+
 function sentTimeTrafficLamp(timeCr) {
     timeCr[0].click(function () {
         socket.emit('streetCtS', `c${timeCr[9]}${timeCr[1].val()}${timeCr[2].val()}${timeCr[3].val()}${timeCr[4].val()}`)
@@ -388,9 +412,15 @@ $('#btnTurnOffAll').click(function () {
 })
 
 // traffic lamp
-for (var i = 0; i < timeCr.length; i++) {
-    sentTimeTrafficLamp(timeCr[i])
+// true/false crossroad I, II, III, IV
+for (var i = 0; i < 12; i += 3) {
+    var turnCrTemp = new Array()
+    for (var j = 0; j < 3; j++) {
+        turnCrTemp[j] = turnCr[i + j]
+    }
+    controlTrafficLamp(turnCrTemp)
 }
+
 // ta and fa are: true/false all
 $('#btnTurnOnAllTraffics').click(function () {
     socket.emit('streetCtS', 'ta')
@@ -398,6 +428,10 @@ $('#btnTurnOnAllTraffics').click(function () {
 $('#btnTurnOffAllTraffics').click(function () {
     socket.emit('streetCtS', 'fa')
 })
+
+for (var i = 0; i < timeCr.length; i++) {
+    sentTimeTrafficLamp(timeCr[i])
+}
 //#endregion emit from Client to Server
 
 //#region listen from Server to Server
