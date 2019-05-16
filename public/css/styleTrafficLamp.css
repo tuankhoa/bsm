@@ -35,6 +35,17 @@
     border-radius: 20px;
 }
 
+.dieukhienngatu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    padding: 1px 1px 1px 1px;
+    margin-bottom: 10px;
+}
+
 .light {
     border-radius: 50%;
     width: 63px;
@@ -168,14 +179,14 @@
     background-color: #331111;
 }
 
-.redLight{
+.redLight {
     background-color: #EE0000;
 }
 
-.yellowLight{
+.yellowLight {
     background-color: #DDDD00;
 }
 
-.greenLight{
+.greenLight {
     background-color: #00ee00;
 }
