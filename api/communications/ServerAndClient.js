@@ -1,5 +1,7 @@
 var nodemailer = require('nodemailer')
 
+var streetLightController = require('../controllers/streetLightController')
+
 async function checkSensorAndSentEmailAlarm(data) {
     var mesNotifyTurn = ''
     var mesAlarm = ''
@@ -85,6 +87,7 @@ module.exports = function (io, client) {
                     }
                     if (count > 0) {
                         checkSensorAndSentEmailAlarm(dataStC)
+                        streetLightController(dataStC)
                     }
                 }
             }
