@@ -78,17 +78,30 @@ module.exports = function (io, client) {
                         dataTempStC[i] = dataStC[i]
                     }
                 } else {
-                    var count = 0
+                    for (var i = 0; i < 12; i++) {
+                        var count2 = 0
+                        var dataChunkStC = new Array()
+                        for (var j = 0; j < 9; j++) {
+                            dataChunkStC[j] = dataStC[i * 9 + j]
+                            if (dataTempStC[i * 9 + j] != dataStC[i * 9 + j]) {
+                                count2++
+                            }
+                        }
+                        if (count2 > 0) {
+                            streetLightController(dataChunkStC, i)
+                        }
+                    }
+                    var count1 = 0
                     for (var i = 0; i < 108; i++) {
                         if (dataTempStC[i] != dataStC[i]) {
                             dataTempStC[i] = dataStC[i]
-                            count++
+                            count1++
                         }
                     }
-                    if (count > 0) {
+                    if (count1 > 0) {
                         checkSensorAndSentEmailAlarm(dataStC)
-                        streetLightController(dataStC)
                     }
+
                 }
             }
         })
