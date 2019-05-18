@@ -29,6 +29,7 @@ var options = {
     clean: true,
     encoding: 'utf8'
 }
+
 var client = mqtt.connect('mqtt://postman.cloudmqtt.com', options)
 // var client = mqtt.connect('mqtt://192.168.1.6')
 
