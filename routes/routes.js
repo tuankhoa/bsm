@@ -3,16 +3,6 @@ var StreetLights = require('../api/models/streetlightModel')
 
 module.exports = function (app, passport) {
 
-    app.get('/getuser', function (req, res) {
-        Users.findOne({ email: 'tuankhoa.hoangngoc@gmail.com' }, function (err, userKhoa) {
-            if (err) {
-                throw err
-            } else {
-                res.send(userKhoa)
-            }
-        })
-    })
-
     app.get(['/', '/home'], isLoggedInHome, function (req, res) {
         res.render('pages/home')
     })
@@ -38,16 +28,16 @@ module.exports = function (app, passport) {
         })
     })
 
-    app.get('/streetlight', function (req, res) {
+    app.get('/streetlight', isLoggedIn, function (req, res) {
 
         res.render('pages/streetLight')
     })
 
-    app.get('/trafficlamp', function (req, res) {
+    app.get('/trafficlamp', isLoggedIn, function (req, res) {
         res.render('pages/trafficLamp')
     })
 
-    app.get('/history', async function (req, res) {
+    app.get('/history', isLoggedIn, async function (req, res) {
         var temp_history = [];
         await StreetLights.find({ streetName: req.query.streetname }, function (err, results) {
             if (err) {
