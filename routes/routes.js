@@ -28,16 +28,16 @@ module.exports = function (app, passport) {
         })
     })
 
-    app.get('/streetlight', isLoggedIn, function (req, res) {
+    app.get('/streetlight', isLoggedInStreetLight, function (req, res) {
 
         res.render('pages/streetLight')
     })
 
-    app.get('/trafficlamp', isLoggedIn, function (req, res) {
+    app.get('/trafficlamp', isLoggedInTrafficLamp, function (req, res) {
         res.render('pages/trafficLamp')
     })
 
-    app.get('/history', isLoggedIn, async function (req, res) {
+    app.get('/history', async function (req, res) {
         var temp_history = [];
         await StreetLights.find({ streetName: req.query.streetname }, function (err, results) {
             if (err) {
@@ -60,4 +60,14 @@ function isLoggedInHome(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/introduction')
+}
+function isLoggedInStreetLight(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.render('pages/streetLightFake')
+}
+function isLoggedInTrafficLamp(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.render('pages/trafficLampFake')
 }
