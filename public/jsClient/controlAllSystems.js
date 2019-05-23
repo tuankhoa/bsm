@@ -377,25 +377,25 @@ var timeCr = [
 // Functions waiting btn click to emit from Client to Server
 function controlLightStreet(liStr) {
     liStr[9].click(function () {
-        socket.emit('streetCtS', `1${liStr[11]}`)
+        socket.emit('dataCtS', `1${liStr[11]}`)
     })
     liStr[10].click(function () {
-        socket.emit('streetCtS', `0${liStr[11]}`)
+        socket.emit('dataCtS', `0${liStr[11]}`)
     })
 }
 
 function controlTrafficLamp(turnCr) {
     turnCr[0].click(function () {
-        socket.emit('streetCtS', `t${turnCr[2]}`)
+        socket.emit('dataCtS', `t${turnCr[2]}`)
     })
     turnCr[1].click(function () {
-        socket.emit('streetCtS', `f${turnCr[2]}`)
+        socket.emit('dataCtS', `f${turnCr[2]}`)
     })
 }
 
 function sentTimeTrafficLamp(timeCr) {
     timeCr[0].click(function () {
-        socket.emit('streetCtS', `c${timeCr[9]}${timeCr[1].val()}${timeCr[2].val()}${timeCr[3].val()}${timeCr[4].val()}`)
+        socket.emit('dataCtS', `c${timeCr[9]}${timeCr[1].val()}${timeCr[2].val()}${timeCr[3].val()}${timeCr[4].val()}`)
     })
 }
 
@@ -405,10 +405,10 @@ for (var i = 0; i < liStr.length; i++) {
 }
 // 1a and 0a are : 1/0 All
 $('#btnTurnOnAll').click(function () {
-    socket.emit('streetCtS', '1a')
+    socket.emit('dataCtS', '1a')
 })
 $('#btnTurnOffAll').click(function () {
-    socket.emit('streetCtS', '0a')
+    socket.emit('dataCtS', '0a')
 })
 
 // traffic lamp
@@ -423,10 +423,10 @@ for (var i = 0; i < 12; i += 3) {
 
 // ta and fa are: true/false all
 $('#btnTurnOnAllTraffics').click(function () {
-    socket.emit('streetCtS', 'ta')
+    socket.emit('dataCtS', 'ta')
 })
 $('#btnTurnOffAllTraffics').click(function () {
-    socket.emit('streetCtS', 'fa')
+    socket.emit('dataCtS', 'fa')
 })
 
 for (var i = 0; i < timeCr.length; i++) {
@@ -491,7 +491,7 @@ function checkLampColor(dataStC, crStr) {
 }
 
 // listen and proccess data from Server
-socket.on('streetStC', function (dataStC) {
+socket.on('dataStC', function (dataStC) {
     for (var i = 0; i < 13; i++) {
         // street light
         if (i < 12) {

@@ -2,10 +2,10 @@ var nodemailer = require('nodemailer')
 
 var streetLightController = require('../controllers/streetLightController')
 
-async function checkSensorAndSentEmailAlarm(data) {
+async function checkLightAndSentEmailAlarm(data) {
     var mesNotifyTurn = ''
     var mesAlarm = ''
-    var countErrorSensor = new Array(12)
+    var countErrorLight = new Array(12)
     for (var i = 0; i < 12; i++) {
         var dataChunk = new Array(9)
         for (var j = 0; j < 9; j++) {
@@ -18,21 +18,21 @@ async function checkSensorAndSentEmailAlarm(data) {
             mesNotifyTurn = `${mesNotifyTurn}
             Street ${i + 1} is turned off`
         }
-        countErrorSensor[i] = 0
+        countErrorLight[i] = 0
         for (var j = 1; j < 9; j++) {
             if (dataChunk[j] == 1) {
-                countErrorSensor[i]++
+                countErrorLight[i]++
             }
         }
     }
     for (var i = 0; i < 12; i++) {
-        if (countErrorSensor[i] > 0) {
+        if (countErrorLight[i] > 0) {
             mesAlarm = `${mesAlarm}
-            Street ${i + 1} has ${countErrorSensor[i]} error lights`
+            Street ${i + 1} has ${countErrorLight[i]} error lights`
         }
     }
-    // console.log(mesNotifyTurn)
-    // console.log(mesAlarm)
+    console.log(mesNotifyTurn)
+    console.log(mesAlarm)
     var transporter = nodemailer.createTransport('smtps://tuankhoa.0013%40gmail.com:7AHJTT19001560@smtp.gmail.com')
     // var transporter = nodemailer.createTransport({
     //     service: 'Gmail',
@@ -56,9 +56,9 @@ module.exports = function (io, client) {
 
     //#region listen from Client to Server and publish from Server to PLC
     io.on('connection', function (socket) {
-        socket.on('streetCtS', function (dataCtS) {
+        socket.on('dataCtS', function (dataCtS) {
             console.log(dataCtS)
-            client.publish('streetStP', dataCtS, { qos: 2 })
+            client.publish('dataStP', dataCtS, { qos: 2 })
         })
     })
     //#endregion listen from Client to Server and publish from Server to PLC
@@ -66,13 +66,13 @@ module.exports = function (io, client) {
     //#region subscribe from PLC to Server and emit from Server to Client
     client.on('connect', function () {
         console.log('|-----|||||====== MQTT CONNECTED ====== |||||-----|')
-        client.subscribe('streetPtS')
+        client.subscribe('dataPtS')
 
         // listen all message of all topic
         client.on('message', function (topic, dataPtS) {
-            if (topic == 'streetPtS') {
+            if (topic == 'dataPtS') {
                 dataStC = dataPtS.toString()
-                io.emit('streetStC', dataStC)
+                io.emit('dataStC', dataStC)
                 if (dataTempStC.length == 0) {
                     for (var i = 0; i < 107; i++) {
                         dataTempStC[i] = dataStC[i]
@@ -99,7 +99,7 @@ module.exports = function (io, client) {
                         }
                     }
                     if (count1 > 0) {
-                        checkSensorAndSentEmailAlarm(dataStC)
+                        checkLightAndSentEmailAlarm(dataStC)
                     }
 
                 }
