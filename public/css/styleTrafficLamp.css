@@ -145,6 +145,36 @@
     float: right;
 }
 
+@media (max-width: 480px) and (min-width: 320px) {
+    .setnut1 {
+        margin-left: 39%;
+    }
+}
+
+@media (min-width: 768px) {
+    .setnut1 {
+        margin-left: 46%;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 600px) {
+    .setnut1 {
+        margin-left: 43%;
+    }
+}
+
+@media (max-width: 600px) and (min-width: 480px) {
+    .setnut1 {
+        margin-left: 40%;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+    .setnut1 {
+        margin-left: 45%;
+    }
+}
+
 .systemsettime {
     width: 180px;
     height: 45px;
