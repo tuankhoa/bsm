@@ -37,7 +37,7 @@ module.exports = function (app, passport) {
         res.render('pages/trafficLamp')
     })
 
-    app.get('/history', async function (req, res) {
+    app.get('/history', isLoggedIn, async function (req, res) {
         var temp_history = [];
         await StreetLights.find({ streetName: req.query.streetname }, function (err, results) {
             if (err) {
