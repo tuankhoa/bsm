@@ -489,19 +489,6 @@ function checkLampColor(dataStC, crStr) {
         crStr[6].removeClass('greenLight')
     }
 }
-
-// function showTime(dataTimeStC) {
-//     for (var i = 0; timeCr.length; i++) {
-//         var dataTimeChunk = new Array(6)
-//         for (var j = 0; j < 6; j++) {
-//             dataTimeChunk[j] = dataTimeStC[i * 6 + j]
-//         }
-//         timeCr[i][5].text(`${dataTimeChunk[0]}${dataTimeChunk[1]}`)
-//         timeCr[i][6].text(`${dataTimeChunk[2]}`)
-//         timeCr[i][7].text(`${dataTimeChunk[3]}${dataTimeChunk[4]}`)
-//         timeCr[i][8].text(`${dataTimeChunk[5]}`)
-//     }
-// }
 // listen and proccess data from Server
 socket.on('dataStC', function (dataStC) {
     for (var i = 0; i < 13; i++) {
@@ -544,12 +531,6 @@ socket.on('dataStC', function (dataStC) {
     timeCr4[6].text(`${dataStC[136]}`)
     timeCr4[7].text(`${dataStC[137]}${dataStC[138]}`)
     timeCr4[8].text(`${dataStC[139]}`)
-
-    // var dataTimeStC = new Array(24)
-    // for (var i = 0; i < 24; i++) {
-    //     dataTimeStC[i] = dataStC[116 + i]
-    // }
-    // showTime(dataTimeStC)
 })
 //#endregion listen from Server to Server
 
