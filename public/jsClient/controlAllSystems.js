@@ -530,6 +530,21 @@ socket.on('dataStC', function (dataStC) {
     timeCr1[7].text(`${dataStC[119]}${dataStC[120]}`)
     timeCr1[8].text(`${dataStC[121]}`)
 
+    timeCr2[5].text(`${dataStC[122]}${dataStC[123]}`)
+    timeCr2[6].text(`${dataStC[124]}`)
+    timeCr2[7].text(`${dataStC[125]}${dataStC[126]}`)
+    timeCr2[8].text(`${dataStC[7]}`)
+
+    timeCr3[5].text(`${dataStC[128]}${dataStC[128]}`)
+    timeCr3[6].text(`${dataStC[130]}`)
+    timeCr3[7].text(`${dataStC[131]}${dataStC[132]}`)
+    timeCr3[8].text(`${dataStC[133]}`)
+
+    timeCr4[5].text(`${dataStC[134]}${dataStC[135]}`)
+    timeCr4[6].text(`${dataStC[136]}`)
+    timeCr4[7].text(`${dataStC[137]}${dataStC[138]}`)
+    timeCr4[8].text(`${dataStC[139]}`)
+
     // var dataTimeStC = new Array(24)
     // for (var i = 0; i < 24; i++) {
     //     dataTimeStC[i] = dataStC[116 + i]
