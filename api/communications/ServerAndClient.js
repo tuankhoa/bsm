@@ -57,7 +57,6 @@ module.exports = function (io, client) {
     //#region listen from Client to Server and publish from Server to PLC
     io.on('connection', function (socket) {
         socket.on('dataCtS', function (dataCtS) {
-            console.log(dataCtS)
             client.publish('dataStP', dataCtS, { qos: 2 })
         })
     })
