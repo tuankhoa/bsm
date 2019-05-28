@@ -491,10 +491,10 @@ function checkLampColor(dataStC, crStr) {
 }
 
 function showTime(dataTimeStC) {
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; timeCr.length; i++) {
         var dataTimeChunk = new Array(6)
         for (var j = 0; j < 6; j++) {
-            dataTimeChunk[j] = dataTimeStC[i * 4 + j]
+            dataTimeChunk[j] = dataTimeStC[i * 6 + j]
         }
         timeCr[i][5].text(`${dataTimeChunk[0]}${dataTimeChunk[1]}`)
         timeCr[i][6].text(`${dataTimeChunk[2]}`)
