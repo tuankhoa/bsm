@@ -524,6 +524,12 @@ socket.on('dataStC', function (dataStC) {
             }
         }
     }
+
+    timeCr1[5].text(`${dataStC[116]}${dataStC[117]}`)
+    timeCr1[6].text(`${dataStC[118]}`)
+    timeCr1[7].text(`${dataStC[119]}${dataStC[120]}`)
+    timeCr1[8].text(`${dataStC[121]}`)
+
     // var dataTimeStC = new Array(24)
     // for (var i = 0; i < 24; i++) {
     //     dataTimeStC[i] = dataStC[116 + i]
