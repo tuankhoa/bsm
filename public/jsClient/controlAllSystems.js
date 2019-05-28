@@ -525,8 +525,8 @@ socket.on('dataStC', function (dataStC) {
         }
     }
     var dataTimeStC = new Array(24)
-    for (var i = 0; i < 24; i++) {
-        dataTimeStC[i] = dataStC[116 + i]
+    for (var k = 0; k < 24; k++) {
+        dataTimeStC[k] = dataStC[116 + k]
     }
     showTime(dataTimeStC)
 })
