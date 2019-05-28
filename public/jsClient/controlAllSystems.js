@@ -533,9 +533,9 @@ socket.on('dataStC', function (dataStC) {
     timeCr2[5].text(`${dataStC[122]}${dataStC[123]}`)
     timeCr2[6].text(`${dataStC[124]}`)
     timeCr2[7].text(`${dataStC[125]}${dataStC[126]}`)
-    timeCr2[8].text(`${dataStC[7]}`)
+    timeCr2[8].text(`${dataStC[127]}`)
 
-    timeCr3[5].text(`${dataStC[128]}${dataStC[128]}`)
+    timeCr3[5].text(`${dataStC[128]}${dataStC[129]}`)
     timeCr3[6].text(`${dataStC[130]}`)
     timeCr3[7].text(`${dataStC[131]}${dataStC[132]}`)
     timeCr3[8].text(`${dataStC[133]}`)
