@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+.carousel-inner img {
+    width: 100%;
+    height: 500px;
+}
+
+.phanchia{
+    border-style:groove; 
+    border-top: hidden;
+    border-left: hidden;
+    border-bottom: hidden;
+    padding-right: 10px;
+    border-right-color: rgba(0, 0, 0, 0.1)
+}
+.simple_team_img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid grey;
+    border-radius: 50%;
+  
+}
+
+.simple_team{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    padding: 5px;
+    border-style: hidden;
+    height: auto;
+    width: auto;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 6px;
+    border-color: whitesmoke;
+    background-color:#3366CC;
+
+}
+.maintopic{display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    padding: 5px;
+    border-style: hidden;
+    height: auto;
+    width: auto;
+
+
+}
+.cs1{
+    background-repeat: no-repeat;
+    background-image: url(../images/hinh4.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 350px;
+    opacity: 1;
+    visibility: inherit;
+}
+.cs2{
+    background-repeat: no-repeat;
+    background-image: url(../images/hinh5.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 350px;
+    opacity: 1;
+    visibility: inherit;
+}
+.cs22{
+    background-repeat: no-repeat;
+    background-image: url(../images/hinh9.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 350px;
+    opacity: 1;
+    visibility: inherit;
+}
+.hinhmain{
+    background-repeat: no-repeat;
+    background-image: url(../images/hinh10.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 350px;
+    opacity: 1;
+    visibility: inherit;
+}
+.hinhstreet{
+    background-repeat: no-repeat;
+    background-image: url(../images/hinh11.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 350px;
+    opacity: 1;
+    visibility: inherit;
+}
+.hinhtraffic{
+    background-repeat: no-repeat;
+    background-image: url(../images/hinh3.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 350px;
+    opacity: 1;
+    visibility: inherit;
+}
+
