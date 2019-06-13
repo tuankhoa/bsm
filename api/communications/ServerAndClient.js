@@ -52,6 +52,7 @@ async function checkLightAndSentEmailAlarm(data) {
 }
 
 var dataTempStC = new Array()
+var count = 0
 module.exports = function (io, client) {
 
     //#region listen from Client to Server and publish from Server to PLC
@@ -67,8 +68,17 @@ module.exports = function (io, client) {
         console.log('|-----|||||====== MQTT CONNECTED ====== |||||-----|')
         client.subscribe('dataPtS')
 
+        setInterval(function () {
+            if (count > 0) {
+                count = 0
+            } else {
+                io.emit('connectStatus', 0)
+            }
+        }, 3000)
         // listen all message of all topic
         client.on('message', function (topic, dataPtS) {
+            count++
+            io.emit('connectStatus', 1)
             if (topic == 'dataPtS') {
                 dataStC = dataPtS.toString()
                 io.emit('dataStC', dataStC)

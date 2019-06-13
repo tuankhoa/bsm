@@ -3,7 +3,7 @@ var StreetLights = require('../api/models/streetlightModel')
 
 module.exports = function (app, passport) {
 
-    app.get(['/', '/home'], isLoggedInHome, function (req, res) {
+    app.get(['/', '/home'], function (req, res) {
         res.render('pages/home')
     })
 
@@ -28,12 +28,12 @@ module.exports = function (app, passport) {
         })
     })
 
-    app.get('/streetlight', isLoggedInStreetLight, function (req, res) {
+    app.get('/streetlight', function (req, res) {
 
         res.render('pages/streetLight')
     })
 
-    app.get('/trafficlamp', isLoggedInTrafficLamp, function (req, res) {
+    app.get('/trafficlamp', function (req, res) {
         res.render('pages/trafficLamp')
     })
 

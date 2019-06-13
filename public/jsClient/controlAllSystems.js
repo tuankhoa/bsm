@@ -532,5 +532,13 @@ socket.on('dataStC', function (dataStC) {
     timeCr4[7].text(`${dataStC[137]}${dataStC[138]}`)
     timeCr4[8].text(`${dataStC[139]}`)
 })
+
+socket.on('connectStatus', function (status) {
+    if (status == 1) {
+        $('.topic').css('color', 'black')
+    } else {
+        $('.topic').css('color', 'red')
+    }
+})
 //#endregion listen from Server to Server
 
