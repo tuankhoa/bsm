@@ -11,7 +11,7 @@ $('#update').click(function () {
 })
 
 $('#searchSalary').click(function () {
-    if ($('#fDate').val() == '' & $('#fMonth').val() != '' & $('#fYear').val() != '') {
+    if ($('#fMonth').val() != '' & $('#fYear').val() != '') {
         console.log('ok')
         var data = [
             $('#fMonth').val(),
