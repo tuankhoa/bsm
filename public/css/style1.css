@@ -1,4 +1,10 @@
 @charset "utf-8";
+body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 .font-header {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -8,7 +14,7 @@
 }
 
 .imageLogo {
-    width: 60px;
+    width: 50px;
 }
 
 .row {

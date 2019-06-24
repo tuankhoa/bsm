@@ -1,14 +1,9 @@
-var Users = require('../api/models/userModel')
-var StreetLights = require('../api/models/streetlightModel')
+var Trucs = require('../api/models/TrucModel')
 
 module.exports = function (app, passport) {
 
-    app.get(['/', '/home'], isLoggedInHome, function (req, res) {
+    app.get('/', isLoggedIn, function (req, res) {
         res.render('pages/home')
-    })
-
-    app.get('/introduction', function (req, res) {
-        res.render('pages/homeFake')
     })
 
     app.get('/login', function (req, res) {
@@ -18,7 +13,7 @@ module.exports = function (app, passport) {
     app.post('/login',
         passport.authenticate('local', { failureRedirect: '/login' }),
         function (req, res) {
-            res.redirect('/home')
+            res.redirect('/')
         }
     )
 
@@ -27,27 +22,93 @@ module.exports = function (app, passport) {
             res.redirect('/login')
         })
     })
-
-    app.get('/streetlight', isLoggedInStreetLight, function (req, res) {
-
-        res.render('pages/streetLight')
-    })
-
-    app.get('/trafficlamp', isLoggedInTrafficLamp, function (req, res) {
-        res.render('pages/trafficLamp')
-    })
-
     app.get('/history', isLoggedIn, async function (req, res) {
-        var temp_history = [];
-        await StreetLights.find({ streetName: req.query.streetname }, function (err, results) {
-            if (err) {
-                throw err
-            }
-            results.forEach(function (row) {
-                temp_history.push({ 'day': row.day, 'time': row.time, 'state': row.state, 'errorLights': row.errorLights })
+        var temp_history = []
+        // ngay thang nam
+        if (req.query.qDate != '' & req.query.qMonth != '' & req.query.qYear != '') {
+            await Trucs.find({ date: req.query.qDate, month: req.query.qMonth, year: req.query.qYear }, function (err, results) {
+                if (err) {
+                    throw err
+                }
+                results.forEach(function (row) {
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                })
+                res.status(200).send(temp_history)
             })
-            res.status(200).send(temp_history)
-        })
+        }
+        // ngay
+        if (req.query.qDate != '' & req.query.qMonth == '' & req.query.qYear == '') {
+            await Trucs.find({ date: req.query.qDate }, function (err, results) {
+                if (err) {
+                    throw err
+                }
+                results.forEach(function (row) {
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                })
+                res.status(200).send(temp_history)
+            })
+        }
+        // thang
+        if (req.query.qDate == '' & req.query.qMonth != '' & req.query.qYear == '') {
+            await Trucs.find({ month: req.query.qMonth }, function (err, results) {
+                if (err) {
+                    throw err
+                }
+                results.forEach(function (row) {
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                })
+                res.status(200).send(temp_history)
+            })
+        }
+        // nam
+        if (req.query.qDate == '' & req.query.qMonth == '' & req.query.qYear != '') {
+            await Trucs.find({ year: req.query.qYear }, function (err, results) {
+                if (err) {
+                    throw err
+                }
+                results.forEach(function (row) {
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                })
+                res.status(200).send(temp_history)
+            })
+        }
+        // ngay thang
+        if (req.query.qDate != '' & req.query.qMonth != '' & req.query.qYear == '') {
+            await Trucs.find({ date: req.query.qDate, month: req.query.qMonth }, function (err, results) {
+                if (err) {
+                    throw err
+                }
+                results.forEach(function (row) {
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                })
+                res.status(200).send(temp_history)
+            })
+        }
+        // ngay nam
+        if (req.query.qDate != '' & req.query.qMonth == '' & req.query.qYear != '') {
+            await Trucs.find({ date: req.query.qDate, year: req.query.qYear }, function (err, results) {
+                if (err) {
+                    throw err
+                }
+                results.forEach(function (row) {
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                })
+                res.status(200).send(temp_history)
+            })
+        }
+        // thang nam
+        if (req.query.qDate == '' & req.query.qMonth != '' & req.query.qYear != '') {
+            await Trucs.find({ month: req.query.qMonth, year: req.query.qYear }, function (err, results) {
+                if (err) {
+                    throw err
+                }
+                results.forEach(function (row) {
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                })
+                res.status(200).send(temp_history)
+            })
+        }
+
     })
 }
 
@@ -55,19 +116,4 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/login')
-}
-function isLoggedInHome(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    res.redirect('/introduction')
-}
-function isLoggedInStreetLight(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    res.render('pages/streetLightFake')
-}
-function isLoggedInTrafficLamp(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    res.render('pages/trafficLampFake')
 }

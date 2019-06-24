@@ -4,289 +4,79 @@
 <head>
     <title>Home</title>
     <%include ../partials/head%>
-    <link rel="stylesheet" href="assets/css/styleHome.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="assets/js/history.js"></script>
 </head>
 
 <body>
     <header>
         <%include ../partials/header%>
     </header>
-
-    <main>
-        <div style="margin-top:90px;">
-            <div id="demo1" class="carousel slide" data-ride="carousel">
-
-                <!-- Indicators -->
-                <ul class="carousel-indicators">
-                    <li data-target="#demo1" data-slide-to="0" class="active"></li>
-                    <li data-target="#demo1" data-slide-to="1"></li>
-                    <li data-target="#demo1" data-slide-to="2"></li>
-
-                </ul>
-
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active cs1 ">
-
-                    </div>
-                    <div class="carousel-item cs22">
-
-                    </div>
-
-                    <div class="carousel-item cs2">
-
-                    </div>
-                   
-
+    <main style="margin-top:80px">
+        <form action="/" method="POST">
+            <div style="margin:5px" class="alert alert-success text-center" role="alert">
+                Nhập ngày bé làm và số giờ làm nè!
+            </div>
+            <div style="margin:5px" class="form-row">
+                <div class="col">
+                    <input id="date" type="number" class="form-control" placeholder="Ngày nè">
                 </div>
-
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#demo1" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#demo1" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#demo1" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
-            </div>
-
-            <div>
-                <span class="fab fa-ethereum" style="margin-left: 49%"></span>
-            </div>
-            <div class="container">
-                <div class="row" style="margin-top:20px">
-                    <div class="col-lg-6">
-                        <img src="assets/images/hinhbkcs2.jpg" alt="CS1" width="100%" height="100%" class="mx-auto d-block">
-                    </div>
-                    <div class="col-lg-6">
-                        <h2 style="font-family: Open Sans;">Đại học Bách Khoa
-                        </h2>
-                        <p style="font-family: Open Sans;text-align: justify;">Trường Đại học Bách khoa (Ho Chi Minh
-                            City
-                            University of
-                            Technology) là một trường đại học đa
-                            ngành về khối ngành kỹ thuật tại Việt Nam,là thành viên của hệ thống Đại học Quốc gia, được
-                            xếp vào nhóm trường đại học trọng điểm quốc gia Việt Nam.</p>
-                        <p style="font-family: Open Sans;text-align: justify;"> Bên cạnh đào tạo, trường còn là trung
-                            tâm
-                            nghiên cứu cho doanh
-                            nghiệp và chính phủ.
-                        </p>
-                        <p style="text-align:end; font-size:15px;font-family: Open Sans;">Theo wikipedia</p>
-                    </div>
+                <div class="col">
+                    <input id="month" type="number" class="form-control" placeholder="Tháng nè">
+                </div>
+                <div class="col">
+                    <input id="year" type="number" class="form-control" placeholder="Năm nè">
+                </div>
+                <div class="col">
+                    <input id="noHours" type="number" class="form-control" placeholder="Giờ làm nè">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3" style="margin-top:20px;margin-bottom:10px">
-                    <img src="assets/images/khoadien.jpg" alt="CS1" width="100%" height="100%" class="mx-auto d-block">
-                    <h2 style="font-size:20px;text-align: center">Khoa Điện</h2>
+            <div class="text-center">
+                <button id="update" type="button" class="btn btn-success">Update</button>
+            </div>
+            <hr>
+            <div style="margin:20px 5px 5px 5px" class="alert alert-primary text-center" role="alert">
+                Bé muốn tìm ngày làm nào nhờ?
+            </div>
+            <div style="margin:5px" class="form-row">
+                <div class="col">
+                    <input id="fDate" type="number" class="form-control" placeholder="Tìm ngày">
                 </div>
-                <div class="col-lg-3" style="margin-top:20px;margin-bottom:10px">
-                    <img src="assets/images/Hoa.jpg" alt="CS1" width="100%" height="100%" class="mx-auto d-block">
-                    <h2 style="font-size:20px;text-align: center">Khoa Hóa</h2>
+                <div class="col">
+                    <input id="fMonth" type="number" class="form-control" placeholder="Tìm tháng">
                 </div>
-                <div class="col-lg-3" style="margin-top:20px;margin-bottom:10px">
-                    <img src="assets/images/co khi.jpg" alt="CS1" width="100%" height="100%" class="mx-auto d-block">
-                    <h2 style="font-size:20px;text-align: center">Khoa Cơ Khí</h2>
-                </div>
-                <div class="col-lg-3" style="margin-top:20px;margin-bottom:10px">
-                    <img src="assets/images/xay dung.jpg" alt="CS1" width="100%" height="100%" class="mx-auto d-block">
-                    <h2 style="font-size:20px;text-align: center">Khoa Xây Dựng</h2>
+                <div class="col">
+                    <input id="fYear" type="number" class="form-control" placeholder="Tìm năm">
                 </div>
             </div>
-
-            <div>
-                <span class="far fa-window-minimize" style="margin-left: 49%; margin-top: 20px;"></span>
+            <div class="text-center">
+                <button id="search" type="button" class="btn btn-primary">Search</button>
             </div>
 
-            <div class="row" style="margin-top:30px">
-                <div class="col-lg-6">
-                    <img src="assets/images/khoadien.jpg" alt="CS1" width="100%" height="100%">
-                </div>
-                <div class="col-lg-6">
-                    <h2 style="font-family: Open Sans;">Khoa Điện-Điện tử</h2>
-                    <p style="text-align: justify;font-family: Open Sans;">Được thành lập từ năm 1957, Khoa Điện - Điện
-                        Tử
-                        thuộc Trường Đại học Bách Khoa – ĐH Quốc Gia thành phố Hồ Chí Minh đã có truyền thống phát triển
-                        hơn
-                        55 năm qua.</p>
-                    <p style="text-align: justify;font-family: Open Sans;">Với đội ngũ gồm 140 giảng viên có năng lực
-                        chuyên
-                        môn cao, Khoa Điện - Điện Tử đã có nhiều đóng góp cho sự phát triển nền kinh tế vùng phía Nam
-                        của
-                        đất nước bằng các kết quả đào tạo và nghiên cứu khoa học. Các thế hệ sinh viên của Khoa sau khi
-                        tốt
-                        nghiệp đã và đang có nhiều cống hiến quan trọng. Nhiều người trong số họ hiện đang giữ các vị
-                        trí
-                        chủ chốt trong các khu vực kinh tế Nhà nước và tư nhân.
-
-                    </p>
-                    <a target="_blank" style="background-color:#0062ab; color:#ffffff;font-family: Open Sans;"
-                        href="http://dee.hcmut.edu.vn/index.php?route=product/category&path=72_73" title="">Xem chi
-                        tiết</a>
-                </div>
+            <div style="margin:20px 5px 5px 5px" class="text-center">
+                <h4><span id="txtMonth"></span><span id="salary" class="badge badge-secondary"></span></h4>
             </div>
+        </form>
 
-            <!-- <div class="row">
-                <div class="col-lg-3" style="margin-top:20px;margin-bottom:10px">
-                    <img src="assets/images/hinh4.jpg" alt="CS1" width="100%" height="100%">
-                    <h2 style="font-size:20px;text-align: center">Khoa Điện</h2>
-                </div>
-                <div class="col-lg-3" style="margin-top:20px;margin-bottom:10px">
-                    <img src="assets/images/hinh5.jpg" alt="CS1" width="100%" height="100%">
-                    <h2 style="font-size:20px;text-align: center">Khoa Hóa</h2>
-                </div>
-                <div class="col-lg-3" style="margin-top:20px;margin-bottom:10px">
-                    <img src="assets/images/hinh3.jpg" alt="CS1" width="100%" height="100%">
-                    <h2 style="font-size:20px;text-align: center">Khoa Cơ Khí</h2>
-                </div>
-                <div class="col-lg-3" style="margin-top:20px;margin-bottom:10px">
-                    <img src="assets/images/hinh2.jpg" alt="CS1" width="100%" height="100%">
-                    <h2 style="font-size:20px;text-align: center">Khoa Xây Dựng</h2>
-                </div>
-            </div> -->
-
-
-
-
-
-
-            <div id="demo" class="carousel slide" data-ride="carousel" style=" margin-top:20px"">
-    
-                <!-- Indicators -->
-                <ul class=" carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-                </ul>
-
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active hinhmain">
-
-                    </div>
-                    <div class="carousel-item hinhstreet">
-
-                    </div>
-                    <div class="carousel-item hinhtraffic">
-
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#demo" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
+        <div id="history" class="card-body">
+            <div id="tableHistory" class="table-responsive">
+                <table id="dataHistory" class="table table-striped text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Ngày</th>
+                            <th scope="col">Tháng</th>
+                            <th scope="col">Năm</th>
+                            <th scope="col">Số giờ làm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
-
-            <div class="maintopic" title="container" data-toggle="tooltip" data-placement="top" style="margin-top:20px">
-                <div style="margin-top:20px">
-                    <h4>
-                        <p style="color:black;text-align: center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">LUẬN VĂN TỐT NGHIỆP</p>
-                    </h4>
-                    <p style="color:black;text-align: center;font-size: 30px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">The smart street lights and traffic systems
-                        based on cloud computing</p>
-
-
-                </div>
-            </div>
-
-
-
-
-
-            <div style="background-color:#0e2b4d; margin-top:20px">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="maintopic" title="container" data-toggle="tooltip" data-placement="top"
-                                style="margin-top:20px">
-                                <div>
-                                    <h4>
-                                        <p style="color:white;text-align: center;">NHÓM THỰC HIỆN</p>
-                                    </h4>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="simple_team" title="container" data-toggle="tooltip" data-placement="top"
-                                style="margin-top:20px;margin-bottom:20px">
-                                <div>
-                                    <img src="assets/images/TSChau.jpg" alt="" class="simple_team_img">
-                                </div>
-                                <div style="width: 100%;">
-                                    <h4>
-                                        <p style="color:white;text-align: center;">TS. Trương Đình Châu</p>
-                                    </h4>
-                                    <p style="text-align: center;">Giáo viên hướng dẫn</p>
-
-                                </div>
-                                <div style="width:100%">
-                                    <a style="margin-left:49%" target="_blank" class="fa fa-facebook"
-                                        href="https://www.facebook.com/industryautomation"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="simple_team" title="container" data-toggle="tooltip" data-placement="top"
-                                style="margin-top:20px;margin-bottom:20px">
-                                <div>
-                                    <img src="assets/images/TuanKhoa.JPG" alt="" class="simple_team_img">
-                                </div>
-                                <div style="width: 100%;">
-                                    <h4>
-                                        <p style="color:white;text-align: center;"> Hoàng Ngọc Tuấn Khoa</p>
-                                    </h4>
-                                    <p style="text-align: center;">Sinh viên</p>
-
-                                </div>
-                                <div style="width:100%">
-                                    <a style="margin-left:49%;" target="_blank" class="fa fa-facebook"
-                                        href="https://www.facebook.com/beatboxer.tuankhoa"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="simple_team" title="container" data-toggle="tooltip" data-placement="top"
-                                style="margin-top:20px;margin-bottom:20px">
-                                <div>
-                                    <img src="assets/images/DangKhoa.jpg" alt="" class="simple_team_img">
-                                </div>
-                                <div style="width: 100%;">
-                                    <h4>
-                                        <p style="color:white;text-align: center;"> Trần Việt Đăng Khoa</p>
-                                    </h4>
-                                    <p style="text-align: center;">Sinh viên</p>
-
-                                </div>
-                                <div style="width:100%">
-                                    <a style="margin-left:49%" target="_blank" class="fa fa-facebook"
-                                        href="https://www.facebook.com/dangkhoa.tranviet"></a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="cs1"></div>
         </div>
-
     </main>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="assets/jsClient/controlAllSystems.js"></script>
 </body>
 
 </html>
