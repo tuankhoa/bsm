@@ -22,6 +22,20 @@ module.exports = function (app, passport) {
             res.redirect('/login')
         })
     })
+
+    app.get('/historyall', isLoggedIn, async function (req, res) {
+        var temp_history = []
+        await Trucs.find({}, function (err, results) {
+            if (err) {
+                throw err
+            }
+            results.forEach(function (row) {
+                temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+            })
+            res.status(200).send(temp_history)
+        })
+    })
+
     app.get('/history', isLoggedIn, async function (req, res) {
         var temp_history = []
         // ngay thang nam
