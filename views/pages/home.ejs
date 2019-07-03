@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <%include ../partials/head%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="assets/js/history.js"></script>
+</head>
+
+<body>
+    <header>
+        <%include ../partials/header%>
+    </header>
+    <main style="margin-top:80px">
+        <form action="/" method="POST">
+            <div style="margin:5px" class="alert alert-success text-center" role="alert">
+                Nhập ngày bé làm và số giờ làm nè!
+            </div>
+            <div style="margin:5px" class="form-row">
+                <div class="col">
+                    <input id="date" type="number" class="form-control" placeholder="Ngày nè">
+                </div>
+                <div class="col">
+                    <input id="month" type="number" class="form-control" placeholder="Tháng nè">
+                </div>
+                <div class="col">
+                    <input id="year" type="number" class="form-control" placeholder="Năm nè">
+                </div>
+                <div class="col">
+                    <input id="noHours" type="number" class="form-control" placeholder="Giờ làm nè">
+                </div>
+            </div>
+            <div class="text-center">
+                <button id="update" type="button" class="btn btn-success">Update</button>
+            </div>
+            <hr>
+            <div style="margin:20px 5px 5px 5px" class="alert alert-primary text-center" role="alert">
+                Bé muốn tìm ngày làm nào nhờ?
+            </div>
+            <div style="margin:5px" class="form-row">
+                <div class="col">
+                    <input id="fDate" type="number" class="form-control" placeholder="Tìm ngày">
+                </div>
+                <div class="col">
+                    <input id="fMonth" type="number" class="form-control" placeholder="Tìm tháng">
+                </div>
+                <div class="col">
+                    <input id="fYear" type="number" class="form-control" placeholder="Tìm năm">
+                </div>
+            </div>
+            <div class="text-center">
+                <button id="search" type="button" class="btn btn-primary">Search</button>
+                <button id="searchAll" type="button" class="btn btn-danger">Search All</button>
+                <button id="searchSalary" type="button" class="btn btn-secondary">Salary</button>
+            </div>
+
+            <div style="margin:20px 5px 5px 5px" class="text-center">
+                <h4><span id="txtMonthYear"></span><span id="salary" class="badge badge-secondary"></span></h4>
+                <div id="spin"></div>
+            </div>
+        </form>
+
+        <div id="history" class="card-body">
+            <div id="tableHistory" class="table-responsive">
+                <table id="dataHistory" class="table table-striped text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Ngày</th>
+                            <th scope="col">Tháng</th>
+                            <th scope="col">Năm</th>
+                            <th scope="col">Số giờ làm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="assets/jsClient/controlAllSystems.js"></script>
+</body>
+
+</html>
