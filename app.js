@@ -10,7 +10,7 @@ var session = require('express-session')
 //#endregion Library
 
 var app = express()
-var port = process.env.PORT || 8080 
+var port = process.env.PORT || 3000
 var server = app.listen(port)
 // require socket.io and connect to server
 var io = require('socket.io')(server)
