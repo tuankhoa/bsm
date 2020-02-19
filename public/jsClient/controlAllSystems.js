@@ -36,7 +36,7 @@ socket.on('delete', function (mes) {
 })
 
 socket.on('salaryres', function (data) {
-    data *= parseInt($('#salary1Hour').val())
+    data *= 22700
     if(data / 1000 <1){
         $('#salary').text('Không có đồng nào T_T')
         $('#spin').html('')
