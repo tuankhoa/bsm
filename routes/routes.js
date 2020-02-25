@@ -23,6 +23,10 @@ module.exports = function (app, passport) {
         })
     })
 
+    app.get('/getdata', function (req, res) {
+        res.render('pages/getDataPmWeb')
+    })
+
     app.get('/historyall', isLoggedIn, async function (req, res) {
         var temp_history = []
         await Trucs.find({}, function (err, results) {

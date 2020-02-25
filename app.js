@@ -57,3 +57,5 @@ routes(app, passport)
 var communicationsServerAndClient = require('./api/communications/ServerAndClient')
 communicationsServerAndClient(io)
 
+var getData = require('./api/communications/proccessGetData')
+getData(io)
