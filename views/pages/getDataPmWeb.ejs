@@ -2,13 +2,48 @@
 <html lang="en">
 
 <head>
-    <title>Home</title>
+    <title>Get Data</title>
     <%include ../partials/head%>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <button id='getData'>Get</button>
+    <script src="assets/js/FOODS/newLines.js"></script>
+    <script src="assets/js/FOODS/newMachines.js"></script>
+    <script src="assets/js/HCL/newLines.js"></script>
+    <script src="assets/js/HCL/newMachines.js"></script>
+    <script src="assets/js/ORAL/newLines.js"></script>
+    <script src="assets/js/ORAL/newMachines.js"></script>
+    <script src="assets/js/PCL/newLines.js"></script>
+    <script src="assets/js/PCL/newMachines.js"></script>
+    <script src="assets/js/UTILITY/newLines.js"></script>
+    <script src="assets/js/UTILITY/newMachines.js"></script>
+
+    <button id='getTask1'>Task1</button>
+    <button id='getCalendar1'>Calen1</button>
+    line1: <input id="line1" type="text" value="0">
+    machine1: <input id="machine1" type="text" value="0">
+    <br>
+    <button id='getTask2'>Task2</button>
+    <button id='getCalendar2'>Calen2</button>
+    line2: <input id="line2" type="text" value="0">
+    machine2: <input id="machine2" type="text" value="0">
+    <br>
+    <button id='getTask3'>Task3</button>
+    <button id='getCalendar3'>Calen3</button>
+    line3: <input id="line3" type="text" value="0">
+    machine3: <input id="machine3" type="text" value="0">
+    <br>
+    <button id='getTask4'>Task4</button>
+    <button id='getCalendar4'>Calen4</button>
+    line4: <input id="line4" type="text" value="0">
+    machine4: <input id="machine4" type="text" value="0">
+    <br>
+    <button id='getTask5'>Task5</button>
+    <button id='getCalendar5'>Calen5</button>
+    line5: <input id="line5" type="text" value="0">
+    machine5: <input id="machine5" type="text" value="0">
+
     <script src="socket.io/socket.io.js"></script>
     <script src="assets/jsClient/getData.js"></script>
 </body>
