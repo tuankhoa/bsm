@@ -2,8 +2,9 @@ var Trucs = require('../api/models/TrucModel')
 
 module.exports = function (app, passport) {
 
-    app.get('/', isLoggedIn, function (req, res) {
-        res.render('pages/home')
+    app.get('/', function (req, res) {
+        res.render('pages/index')
+        // res.render('pages/home')
     })
 
     app.get('/login', function (req, res) {
