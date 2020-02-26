@@ -24,7 +24,7 @@ module.exports = function (app, passport) {
     })
 
     app.get('/getdata', function (req, res) {
-        res.render('pages/getDataPmWeb')
+        res.render('pages/index')
     })
 
     app.get('/historyall', isLoggedIn, async function (req, res) {
