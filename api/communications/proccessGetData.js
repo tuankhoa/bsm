@@ -7,6 +7,7 @@ module.exports = function (io) {
             var emptyArrTask = true
             var tasksLine = []
             var pageTask = 0
+            console.log('get data tasks of lineId ' + data)
             while (emptyArrTask) {
                 var currentTasks = JSON.parse(await doRequest(tasksGetOption(data, pageTask)))
                 if (currentTasks.length) {
@@ -18,6 +19,7 @@ module.exports = function (io) {
                     emptyArrTask = false
                 }
             }
+            console.log('done!')
             socket.emit('resTask', tasksLine)
         })
 
@@ -62,10 +64,10 @@ module.exports = function (io) {
 function tasksGetOption(lineId, page) {
     return {
         'method': 'GET',
-        'url': `https://pmweb.az.team/api/tasks?lineId.equals=${lineId}&done.equals=false&late.equals=false&weekFrom.greaterOrEqualThan=2018-12-31T00:00:00.000Z&weekTo.lessOrEqualThan=2020-02-23T23:59:59.999Z&size=2000&page=${page}&sort=time,asc&sort=id,asc`,
+        'url': `https://pmweb.az.team/api/tasks?lineId.equals=${lineId}&done.equals=false&late.equals=false&weekFrom.greaterOrEqualThan=2018-12-31T00:00:00.000Z&weekTo.lessOrEqualThan=2020-04-19T23:59:59.999Z&size=2000&page=${page}&sort=time,asc&sort=id,asc`,
         'headers': {
             'Host': 'pmweb.az.team',
-            'Authorization': `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0dWFua2hvYSIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfU1VQRVJVU0VSLFJPTEVfVVNFUiIsInBsYW50IjoyLCJleHAiOjE1ODUxNDE2NDJ9.jy9Iq23ejD_UAq1vWGiIQdG0AXYpBfbLPB8q2LKVS69CHBrhxjbRL_6QKSkr0wGpLlwYbnpcCcdhPwVOefJTxA`,
+            'Authorization': `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0dWFua2hvYSIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfU1VQRVJVU0VSLFJPTEVfVVNFUiIsInBsYW50IjoyLCJleHAiOjE1ODk2OTU2Mzh9.BOL1ZEFLvS6QsDWatmc8pHULbk2v9mYesbk0O1aT9zQlGXlqlBTYlz27OwZrCpXUKBVTDTjoa5vUJvoU9IBOfQ`,
             'User-Agent': 'Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)',
             // 'Postman-Token': 'd2938c16-cd54-405f-aef8-65e7cac8b76a',
             'Accept': '*/*',
@@ -78,9 +80,9 @@ function tasksGetOption(lineId, page) {
 function calendarGetOption(lineId, machineId, page) {
     return {
         'method': 'GET',
-        'url': `https://pmweb.az.team/api/calendar/components?groupDetails.equals=false&enableGroupDetails.equals=false&breakdowns.equals=false&time.greaterOrEqualThan=2018-12-31T00:00:00.000Z&time.lessOrEqualThan=2020-02-23T23:59:59.999Z&lineId.equals=${lineId}&machineId.equals=${machineId}&page=${page}&size=2000`,
+        'url': `https://pmweb.az.team/api/calendar/components?groupDetails.equals=false&enableGroupDetails.equals=false&breakdowns.equals=false&time.greaterOrEqualThan=2018-12-31T00:00:00.000Z&time.lessOrEqualThan=2020-04-19T23:59:59.999Z&lineId.equals=${lineId}&machineId.equals=${machineId}&page=${page}&size=2000`,
         'headers': {
-            'Authorization': `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0dWFua2hvYSIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfU1VQRVJVU0VSLFJPTEVfVVNFUiIsInBsYW50IjoyLCJleHAiOjE1ODUxNDE2NDJ9.jy9Iq23ejD_UAq1vWGiIQdG0AXYpBfbLPB8q2LKVS69CHBrhxjbRL_6QKSkr0wGpLlwYbnpcCcdhPwVOefJTxA`,
+            'Authorization': `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0dWFua2hvYSIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfU1VQRVJVU0VSLFJPTEVfVVNFUiIsInBsYW50IjoyLCJleHAiOjE1ODk2OTU2Mzh9.BOL1ZEFLvS6QsDWatmc8pHULbk2v9mYesbk0O1aT9zQlGXlqlBTYlz27OwZrCpXUKBVTDTjoa5vUJvoU9IBOfQ`,
             'User-Agent': 'Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)',
             'Accept': '*/*',
             'Cache-Control': 'no-cache',
