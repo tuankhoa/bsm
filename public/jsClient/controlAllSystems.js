@@ -36,7 +36,7 @@ socket.on('delete', function (mes) {
 })
 
 socket.on('salaryres', function (data) {
-    data *= 22700
+    data *= 22740
     if(data / 1000 <1){
         $('#salary').text('Không có đồng nào T_T')
         $('#spin').html('')
