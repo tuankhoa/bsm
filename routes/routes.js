@@ -34,7 +34,7 @@ module.exports = function (app, passport) {
                 throw err
             }
             results.forEach(function (row) {
-                temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours, 'note': row.note })
             })
             res.status(200).send(temp_history)
         })
@@ -49,7 +49,7 @@ module.exports = function (app, passport) {
                     throw err
                 }
                 results.forEach(function (row) {
-                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours, 'note': row.note })
                 })
                 res.status(200).send(temp_history)
             })
@@ -61,7 +61,7 @@ module.exports = function (app, passport) {
                     throw err
                 }
                 results.forEach(function (row) {
-                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours, 'note': row.note })
                 })
                 res.status(200).send(temp_history)
             })
@@ -73,7 +73,7 @@ module.exports = function (app, passport) {
                     throw err
                 }
                 results.forEach(function (row) {
-                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours, 'note': row.note })
                 })
                 res.status(200).send(temp_history)
             })
@@ -85,7 +85,7 @@ module.exports = function (app, passport) {
                     throw err
                 }
                 results.forEach(function (row) {
-                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours, 'note': row.note })
                 })
                 res.status(200).send(temp_history)
             })
@@ -97,7 +97,7 @@ module.exports = function (app, passport) {
                     throw err
                 }
                 results.forEach(function (row) {
-                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours, 'note': row.note })
                 })
                 res.status(200).send(temp_history)
             })
@@ -109,7 +109,7 @@ module.exports = function (app, passport) {
                     throw err
                 }
                 results.forEach(function (row) {
-                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours })
+                    temp_history.push({ 'date': row.date, 'month': row.month, 'year': row.year, 'noHours': row.noHours, 'note': row.note })
                 })
                 res.status(200).send(temp_history)
             })
@@ -127,7 +127,7 @@ module.exports = function (app, passport) {
                             throw err
                         } else {
                             if (truc.length > 0) {
-                                temp_history.push({ 'date': truc[0].date, 'month': truc[0].month, 'year': truc[0].year, 'noHours': truc[0].noHours })
+                                temp_history.push({ 'date': truc[0].date, 'month': truc[0].month, 'year': truc[0].year, 'noHours': truc[0].noHours, 'note': truc[0].note })
                             }
                         }
                     })
@@ -138,7 +138,7 @@ module.exports = function (app, passport) {
                             throw err
                         } else {
                             if (truc.length > 0) {
-                                temp_history.push({ 'date': truc[0].date, 'month': truc[0].month, 'year': truc[0].year, 'noHours': truc[0].noHours })
+                                temp_history.push({ 'date': truc[0].date, 'month': truc[0].month, 'year': truc[0].year, 'noHours': truc[0].noHours, 'note': truc[0].note })
                             }
                         }
                     })
@@ -151,7 +151,7 @@ module.exports = function (app, passport) {
                             throw err
                         } else {
                             if (truc.length > 0) {
-                                temp_history.push({ 'date': truc[0].date, 'month': truc[0].month, 'year': truc[0].year, 'noHours': truc[0].noHours })
+                                temp_history.push({ 'date': truc[0].date, 'month': truc[0].month, 'year': truc[0].year, 'noHours': truc[0].noHours, 'note': truc[0].note })
                             }
                         }
                     })
@@ -162,7 +162,7 @@ module.exports = function (app, passport) {
                             throw err
                         } else {
                             if (truc.length > 0) {
-                                temp_history.push({ 'date': truc[0].date, 'month': truc[0].month, 'year': truc[0].year, 'noHours': truc[0].noHours })
+                                temp_history.push({ 'date': truc[0].date, 'month': truc[0].month, 'year': truc[0].year, 'noHours': truc[0].noHours, 'note': truc[0].note })
                             }
                         }
                     })

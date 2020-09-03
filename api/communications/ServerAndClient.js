@@ -4,7 +4,7 @@ var Trucs = require('../models/TrucModel')
 module.exports = function (io) {
     io.on('connection', function (socket) {
         socket.on('update', function (data) {
-            TrucController(data[0], data[1], data[2], data[3], socket)
+            TrucController(data[0], data[1], data[2], data[3], data[4], socket)
         })
 
         socket.on('salary', async function (data) {

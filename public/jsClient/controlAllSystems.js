@@ -5,7 +5,8 @@ $('#update').click(function () {
         $('#date').val(),
         $('#month').val(),
         $('#year').val(),
-        $('#noHours').val()
+        $('#noHours').val(),
+        $('#note').val()
     ]
     socket.emit('update', info)
 })

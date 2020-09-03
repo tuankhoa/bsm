@@ -6,7 +6,8 @@ var TrucSchema = new Schema({
     date: Number,
     month: Number,
     year: Number,
-    noHours: Number
+    noHours: Number,
+    note: String
 })
 
 var Truc = mongoose.model('Truc', TrucSchema)
